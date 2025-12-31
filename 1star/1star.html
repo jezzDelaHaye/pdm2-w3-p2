@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDM2 - W3P2 - 1 Star Exercise</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./lib/main-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="./lib/libraries/p5.min.js"></script>
+    <script src="./lib/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h1>1 Star Exercise</h1>
+    <p>Your sketch (no visual output... check the console!):</p>
+    <div class="guidance">
+        <h2>Instructions</h2>
+        <div>
+            <p>sketch.js contains a partially implemented switch statement. Follow 
+                the steps below to complete the switch. There is no visual output for this 
+                sketch—open the browser console to see the output.
+            </p>
+            <ol>
+                <li>Run the sketch. Try pressing "a" then other keys to see the output.</li>
+                <li>Extend the switch statement so that it prints "move right" when you 
+                    press the "d" key, "move up" for the "w" key, and "move down" for the s 
+                    key.
+                </li>
+                <li>Replace the literal values in the switch cases with constants that are 
+                    declared at the top of the code. The constant associated with moving left 
+                    should be called <code>LEFT_LOWERCASE</code> and the other constant variables 
+                    should have similar names.
+                </li>
+                <li>Extend the switch statement so that it prints out the same text whether you 
+                    press the upper case ("A", "S", "D", "W") or lower case keys. Use an efficient 
+                    method which doesn't repeat the exact same <code>console.log()</code> statement 
+                    i.e. <code>console.log("move left");</code> should appear exactly once in your code.
+                </li>
+                <li>Add an additional branch to your switch statement that prints "don't move!" if any 
+                    other key is pressed.
+                </li>
+            </ol>
+            <!-- <p>Expected output:</p>
+            <p>
+                <video width="600" height="400" controls>
+                    <source src="./assets/exercise1-1.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </p> -->
+        </div>
+        <div>
+            <button class="btn btn-primary hint" type="button" data-bs-toggle="collapse" data-bs-target="#hint" aria-expanded="false" aria-controls="hint">
+                Hint
+            </button>
+            <div class="collapse" id="hint">
+                <div class="card card-body">
+                    <p>The lecture slides and basicSwitch example in the lecture code will help with this exercise!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>

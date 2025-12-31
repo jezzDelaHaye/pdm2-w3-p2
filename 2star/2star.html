@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PDM2 - W3P2 - 2 Star Exercise</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./lib/main-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="./lib/libraries/p5.min.js"></script>
+    <script src="./lib/libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <h1>2 Star Exercise</h1>
+    <p>Your sketch:</p>
+    <div class="guidance">
+        <h2>Instructions</h2>
+        <div>
+            <p>sketch.js and player.js contain code for a partially implemented game. You will 
+                add code to manage the game state. Run the code then take a look through both 
+                JavaScript files to see what has been implemented so far.
+            </p>
+            <ol>
+                <li>Look at the <code>draw()</code> function in sketch.js. Currently the <code>drawStart()</code> function 
+                is called. Comment out this function and try uncommenting each of the other function calls in 
+            turn. <code>thePlayer.draw()</code> and <code>thePlayer.move()</code> should be uncommented at the same time. You 
+        should see that each function draws a different message on the canvas, and that the player methods show a red 
+    square that can be moved with the left and right arrow keys.</li>
+                <li>Add a <code>switch</code> statement to the <code>draw()</code> function 
+                that determines whether to call <code>drawStart()</code>, <code>drawWin()</code>, <code>drawDied()</code>, or 
+            the player methods depending on whether state is equal to <code>START</code>, <code>PLAYING</code>, <code>WIN</code>, or <code>DIED</code>.</li>
+                <li>Test your code by changing the value of <code>state</code> and seeing what happens.</li>
+                <li>Add code to the <code>keyPressed()</code> function so that if <code>state</code> is <code>START</code> and 
+                the Enter key is pressed, then <code>state</code> becomes <code>PLAYING</code>.</li>
+                <li>The <code>Player</code> class should have its own state with three possible values: alive, died, or win. You may choose how 
+                to implement the <code>Player</code> state. Also modify the <code>Player.move()</code> method so that it updates 
+            state as needed—when the player goes over the left side of the screen, it dies. If it goes off the right edge of the 
+            canvas, it escapes.</li>
+                <li>Update sketch.js to set the overall game state to <code>WIN</code> or <code>DIED</code> as appropriate if the player's state 
+                changes. You may need to add an additional method or two to the <code>Player</code> class as well.</li>
+                <li>Finally, add code to the <code>keyPressed()</code> function so that if the user presses Enter when 
+                the game state is either <code>WIN</code> or <code>DIED</code>, the game restarts.</li>
+            </ol>
+            <p>Expected output:</p>
+            <p>
+                <video width="800" height="600" controls>
+                    <source src="./assets/2star.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </p>
+        </div>
+        <div>
+            <button class="btn btn-primary hint" type="button" data-bs-toggle="collapse" data-bs-target="#hint" aria-expanded="false" aria-controls="hint">
+                Hint
+            </button>
+            <div class="collapse" id="hint">
+                <div class="card card-body">
+                    <p>To implement steps 4 and 7, it may be helpful to know that you can have multiple lines of code inside a case block. You can even nest <code>if</code> statements or <code>switch</code> statements inside a case.</p>
+                    <p>To implement <code>Player</code> state, it is suggested that you use private string instance variables to 
+                        store the possible states (e.g. "escaped") and another private variable to store the current player state. You will need to update 
+                    the <code>Player</code> state in the <code>move()</code> method if it goes out of bounds. You will also need to decide how the main sketch should 
+                access the <code>Player</code> state to determine how the game state should be updated.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="player.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
