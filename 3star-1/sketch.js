@@ -13,7 +13,8 @@ function draw() {
 }
 
 function keyPressed() {
-    switch (key) {
+    switch (key) 
+    {
         case "w":
             console.log("w")
             hero.changeState(Hero.MOVE_UP);

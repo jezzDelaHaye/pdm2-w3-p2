@@ -77,7 +77,8 @@ class Character {
 }
 
 
-class Enemy extends Character {
+class Enemy extends Character 
+{
     #MOVE_RIGHT = 1;
     #MOVE_LEFT = 2;
     #MOVE_UP = 3;
@@ -100,9 +101,11 @@ class Enemy extends Character {
     /**
      * @override
      */
-    draw() {
+    draw() 
+    {
         super.draw();
-        switch (this.#state) {
+        switch (this.#state) 
+        {
             case this.#MOVE_RIGHT:
                 this.#moveRight();
                 break;
@@ -119,29 +122,35 @@ class Enemy extends Character {
         super.move();
     }
 
-    #moveRight() {
+    #moveRight() 
+    {
         this.setXSpeed(this.#speed);
         this.setYSpeed(0);
         // If hit the right wall, start going up
-        if (this.getX() >= width - Enemy.#SIZE / 2) {
+        if (this.getX() >= width - Enemy.#SIZE / 2) 
+        {
             this.#state = this.#MOVE_UP;
         }
     }
 
-    #moveUp() {
+    #moveUp() 
+    {
         this.setXSpeed(0);
         this.setYSpeed(-this.#speed);
         // If hit the top wall, start going left
-        if (this.getY() <= Enemy.#SIZE / 2) {
+        if (this.getY() <= Enemy.#SIZE / 2) 
+        {
             this.#state = this.#MOVE_LEFT;
         }
     }
 
-    #moveLeft() {
+    #moveLeft() 
+    {
         this.setXSpeed(-this.#speed);
         this.setYSpeed(0);
         // If hit the left wall, start going down
-        if (this.getX() <= Enemy.#SIZE / 2) {
+        if (this.getX() <= Enemy.#SIZE / 2) 
+        {
             this.#state = this.#MOVE_DOWN;
         }
     }
@@ -149,8 +158,13 @@ class Enemy extends Character {
     #moveDown() {
         this.setXSpeed(0);
         this.setYSpeed(this.#speed);
+        if (this.getY() >= height/2 - Enemy.#SIZE / 2) 
+        {
+            this.#state = this.#MOVE_RIGHT;
+        }
         // If hit the bottom wall, start going right
-        if (this.getY() >= height - Enemy.#SIZE / 2) {
+        if (this.getY() >= height - Enemy.#SIZE / 2) 
+        {
             this.#state = this.#MOVE_RIGHT;
         }
     }
@@ -216,27 +230,32 @@ class Hero extends Character {
     }
 
 
-    #turnRight() {
+    #turnRight() 
+    {
         this.setXSpeed(this.#speed);
         this.setYSpeed(0);
     }
 
-    #turnUp() {
+    #turnUp() 
+    {
         this.setXSpeed(0);
         this.setYSpeed(-this.#speed);
     }
 
-    #turnLeft() {
+    #turnLeft() 
+    {
         this.setXSpeed(-this.#speed);
         this.setYSpeed(0);
     }
 
-    #turnDown() {
+    #turnDown() 
+    {
         this.setXSpeed(0);
         this.setYSpeed(this.#speed);
     }
 
-    #stop() {
+    #stop() 
+    {
         this.setXSpeed(0);
         this.setYSpeed(0);
     }
