@@ -4,10 +4,12 @@ class Player
     #y;
     #xSpeed = 0;
     #ySpeed = 0;
-    #alive ;
-    #dead ;
-    #win;
-    #state;
+    state;
+    start = 0;
+    alive = 1;
+    win = 2;
+    dead = 3;
+    
 
 
 
@@ -16,10 +18,7 @@ class Player
      */
     constructor() 
     {
-        this.#alive = 0;
-        this.#dead = 1;
-        this.#win = 2;
-        this.#state = this.#alive; 
+        this.state = this.start;
         this.reset();
     }
 
@@ -42,12 +41,13 @@ class Player
         this.#y += this.#ySpeed;
         if (this.#x < 0 || this.#y < 0 || this.#x > 800 || this.#y > 600) 
         {
-            this.#state = this.#dead;
+            this.updateState(this.dead)
+            this.reset()
             console.log("You died :(");
         } 
         else if (this.#x > width) 
         {
-            this.#state = this.#win;
+            this.updateState(this.win)
             console.log("You win!");
         }
     }
@@ -78,11 +78,11 @@ class Player
 
     checkState()
     {
-        return(this.#state);
+        return(this.state);
     }
 
     updateState(state)
     {
-        this.#state = state;
+        this.state = state;
     }
 }

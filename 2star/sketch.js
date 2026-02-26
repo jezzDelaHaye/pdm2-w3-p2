@@ -1,35 +1,17 @@
-// Game state variables
-const START = 0;
-const PLAYING = 1;
-const WIN = 2;
-const DIED = 3;
-// Set the start state
-let state = START;
-
 // The JSDoc on the next line enables auto completion
 /** @type {Player} */
 let thePlayer;
 
-function setup() {
+function setup() 
+{
     createCanvas(800, 600);
     thePlayer = new Player();
 }
 
 function draw() 
 {
-
-    if (thePlayer.checkState() === 1)
-    {
-        state = DIED;
-    }
-    if (thePlayer.checkState() === 2)
-    {
-        state = DIED;
-    }
-    
     background(255);
-
-    switch(state)
+    switch(thePlayer.state)
     {
         case 0:
             drawStart()
@@ -37,6 +19,7 @@ function draw()
         case 1:
             thePlayer.draw();
             thePlayer.move();
+            console.log(thePlayer.checkState())
             break;
         case 2:
             drawWin();
@@ -64,18 +47,16 @@ function keyPressed()
             thePlayer.setYSpeed(-5)
             break;
         case ENTER:
-            switch(state)
+            switch(thePlayer.state)
             {
                 case 0:
-                    state = PLAYING;
+                    thePlayer.updateState(thePlayer.alive)
                     break;
                 case 2:
-                    state = PLAYING;
                     break;
                 case 3:
                     console.log('restart')
-                    thePlayer.updateState()
-                    state = PLAYING
+                    thePlayer.updateState(thePlayer.alive)
                     break;
             }
             break;

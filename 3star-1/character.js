@@ -83,7 +83,10 @@ class Enemy extends Character
     #MOVE_LEFT = 2;
     #MOVE_UP = 3;
     #MOVE_DOWN = 4;
+    #LEFT_LOOP = 0;
+    #RIGHT_LOOP = 1;
     static #SIZE = 50
+    #loop;
     #speed;
     #state;
 
@@ -92,9 +95,11 @@ class Enemy extends Character
      * Enemy will move around the edges of the canvas by itself.
      * @param {number} speed 
      */
-    constructor(speed) {
+    constructor(speed) 
+    {
         super(Enemy.#SIZE / 2, height - Enemy.#SIZE / 2, color(0, 0, 255), "Enemy");
         this.#speed = speed;
+        this.#loop = this.LEFT_LOOP;
         this.#state = this.#MOVE_RIGHT;
     }
 
@@ -126,6 +131,7 @@ class Enemy extends Character
     {
         this.setXSpeed(this.#speed);
         this.setYSpeed(0);
+
         // If hit the right wall, start going up
         if (this.getX() >= width - Enemy.#SIZE / 2) 
         {
@@ -158,10 +164,7 @@ class Enemy extends Character
     #moveDown() {
         this.setXSpeed(0);
         this.setYSpeed(this.#speed);
-        if (this.getY() >= height/2 - Enemy.#SIZE / 2) 
-        {
-            this.#state = this.#MOVE_RIGHT;
-        }
+       
         // If hit the bottom wall, start going right
         if (this.getY() >= height - Enemy.#SIZE / 2) 
         {
